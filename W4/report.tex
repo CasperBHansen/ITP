@@ -1,8 +1,6 @@
 %
 % report.tex
 %
-% Assignment 4, ITP
-%
 
 \documentclass[11pt]{article}
 \usepackage{a4wide} % save the rain forests
@@ -44,7 +42,9 @@
 \maketitle
 \begin{multicols}{2}
     \begin{abstract}
-    We examine the differences in two particular development methodologies; namely, the waterfall method and SCRUM. In a project context we 
+    We examine the differences in two particular development methodologies; namely, the waterfall method and SCRUM.
+    
+    In a project context we will attempt to give our guess as to the constraints put forth by the stakeholders, with respect to the development methodology, as well as suggestions from the same. Then we will determine the actually employed method, and discuss its advantages as well as associated risks.
     \end{abstract}
 \colbreak
     \tableofcontents
@@ -55,7 +55,7 @@
 % assignment 1)
 \section{[A] Development Methodologies}
 \label{sec:A}
-Choosing a development methodology suitable for the project at hand is imperative.
+Choosing a development methodology suitable for the project at hand is imperative. A suitable development method is highly dependent on the nature of the project, the team, experience, and even the stakeholders. As such, there are many aspects one must consider when choosing a strategy to purpose, which will benefit everyone involved.
 
 \subsection{Waterfall}
 \label{sec:A|sub:waterfall}
@@ -63,83 +63,89 @@ The characteristics of the waterfall methodology is that no phase overlaps anoth
 
 In this methodology, we 1) plan the project with the client, and design the system as a whole, 2) build, or develop, the project in its entirety, 3) test that all components work as defined by the plan, 4) review the project with the client
 
-\begin{tikzpicture}
+%
+% LOOK! - I've fixed the graph!
+%
+%\begin{tikzpicture}
 
-\def \last {0}
+%\def \last {0}
 
-\foreach \i/\label in {0/Plan,1/Build,2/Test,3/Review,4/Deploy}
-{
-  \node[draw] at (2.0*\i, 0.0) {\label};
+%\foreach \i/\label in {0/Plan,1/Build,2/Test,3/Review,4/Deploy}
+%{
+%  \node[draw] at (2.0*\i, 0.0) {\label};
   
   %    \ifthenelse
   %     {\NOT 4 = \x \AND \NOT 7 = \x}
   %     {\draw (\x 1) -- (\x 2);}
   %     {} % (*)
   
-  \ifthenelse {\NOT 0 = \i}{\draw[->, >=latex] (\last) -- (\label);}{} % damn ... can't remember tikz xD
+%  \ifthenelse {\NOT 0 = \i}{\draw[->, >=latex] (\last) -- (\label);}{} % damn ... can't remember tikz xD
   %\draw[->, >=latex] (0.0) -- (\label);
-  \def \last {\label}
+%  \def \last {\label}
   
   % *** this for now, unless you have a solution xD FuckThis++; lol();
   %return 0 fucks; // would make a great meme ;) - Yes should be considered for DIKUmemes
   
   %HAHAHAH!!! :D 
-}
-\end{tikzpicture}
+%}
+%\end{tikzpicture}
 
-Note that a variation of this methodology called `iterative waterfall` reduces some of the risks associated with it. In particular, it alleviates the pitfalls of testing at the very end of the project, which in turn produces \dots. It also allows the stakeholders to gain insight and comment on the project development, as it is being implemented.
+Note that a variation of this methodology called `iterative waterfall` reduces some of the risks associated with it. In particular, it alleviates the pitfalls of testing at the very end of the project. It also allows the stakeholders to gain insight and comment on the project development, as it is being implemented.
 
 \begin{multicols}{2}
     \subsubsection{Pros}
     \begin{description}
         \item[Early warnings] Because this method requires a formal specification to be produced in advance of any implementation, we are likely to catch any problems before even encountering the problem.
         \item[Cost and time] Once a plan is set in motion, there is little or no need of interaction with the client, which allows the developers to focus on the task at hand uninterrupted.
-        \item[Predictable] Each stage produces a tangible product, making the following stage predictable in the development --- that is, no unforeseen tasks occur.
+        \item[Predictable] Each stage produces a tangible product, making the following stage predictable in the development --- that is, a very strong reduction in unforeseen tasks should be achieved, given that the overall project and risk analysis was adequately done.
         \item[Inexperienced/Non-technical] The waterfall methodology is suitable for the `Tinglysningsprojektet`-project, as the textbook points out, ``it may work well with inexperienced or less technically competent``, which we would argue is a tendency in any institution of the government.
     \end{description}
     \colbreak
     
     \subsubsection{Cons}
     \begin{description}
-        \item[High risk] Should one or more problems arise during development, the entire plan is at risk of being invalid.
+        \item[High risk] Should one or more unforeseen or underestimated problems arise during development, the entire plan is at risk of being invalid.
         \item[Inflexible] Once set in motion, this method does not allow for adapting to new input or needs expressed by the client --- altering the project is considerably difficult, and could result in scrapping one or more stages.
-        \item[Communication] Stakeholders have very little influence, if any at all, on the process and insight into the progress. As such, in general approval of the system from the stakeholders is facilitated only at the last (deployment) stage.
+        \item[Communication] Most stakeholders have very little influence%, if any at all, 
+        on the process and insight into the progress of the system. 
+        %As such, in general approval of the system from the stakeholders is facilitated only at the last (deployment) stage.
+        As an example, users of the system are only involved 3 times during the project lifecycle. 1) When requirements are defined in the beginning of the project, 2) When they want changes made in requirements, and 3) at the deployment stage, where they can review the final product.
     \end{description}
 \end{multicols}
 
+\clearpage
 \subsection{SCRUM}
 \label{sec:A|sub:scrum}
-The characteristics of the SCRUM methodology is that a project is broken down into smaller subtasks, that can effectively be developed independent of each other.
+The characteristics of the SCRUM methodology is that a project is broken down into smaller subtasks, that can effectively be developed independently of each other.
 
 \begin{multicols}{2}
     \subsubsection{Pros}
     \begin{description}
-    \item[Modular] The project is subdivided into tasks in their own right, which is easy to delegate out to dedicated teams. Each task is given an estimated completion time and a deadline and can contain nested subtasks (With their own estimated completion time and deadline). 
-        \item[Coordination] With every task and subtasks are delegated to individuals or teams, the project manager (or SCRUM master) can easily arrange weekly or bi-weekly sprints, in which a certain subset of tasks must be completed, usually so every team or individual focus on tasks estimated to their weekly work hours. This ensures that the SCRUM master knows exactly what is being worked on and how it is being progressed as the remaining time on tasks are updated throughout the sprint and deadlines can be extended if needed.
-        \item[Approximated time to completion] As each tasks can contain subtasks and every subtask has an estimated completion time, a sum of the total time to project completion can be estimated. This provides valuable information on how much work is being put into the project on a daily, weekly or monthly basis and can be displayed in a burn-down chart, which gives an approximation for the project completion date.
+    \item[Modular] The project is subdivided into tasks in their own right, which is easy to delegate out to dedicated teams. Each task is given an estimated completion time and a deadline and can contain nested subtasks (with their own estimated completion time and deadline). 
+        \item[Coordination] With every task and subtask delegated to individuals or teams, the project manager (or SCRUM master) can easily arrange weekly or bi-weekly sprints, in which a certain subset of tasks must be completed. Usually this is made so that every team or individual focus on tasks which are estimated to take up time corresponding to their weekly work hours. This form of delegation ensures that the SCRUM master knows exactly what is being worked on, by whom, and the active parts of the project are being progressed as the remaining time on tasks are updated throughout the sprint and moreover - deadlines can be extended if needed.
+        \item[Approximated time to completion] As each task can contain subtasks and every subtask has an estimated completion time, a sum of the total time to project completion can be estimated. This provides valuable information on how much work is being put into the project on a daily, weekly or monthly basis and can be displayed in a burn-down chart, which gives an approximation for the project completion date.
     \end{description}
     \colbreak
     
     \subsubsection{Cons}
     \begin{description}
-        \item[Requires competent and experienced developers] The entire basis of SCRUMS resolves around the time estimation of tasks, usually set by developers. If inexperienced developers cannot estimated the time it will take them to complete a task, the SCRUM deadlines might be extended too much and too often, resulting in a very weak prediction tool and reliability for the project manager and SCRUM master.
-        \item[Motivation] Since SCRUM consists of many sprints, in which teams are dedicated to solving a set of tasks over a given period, a high motivational factor is required, to keep everyone focused. Usually daily or weekly meetings are arranged in which problems, experiences and knowledge earned through the sprint is shared and discussed. On paper, this seems like a valuable time investment, but this method of motivation might not work on everyone, and the meetings might instead have a negative impact on performance and motivation.
+        \item[Requires competent and experienced developers] The entire basis of SCRUM resolves around the time estimation of tasks, usually set by developers. If inexperienced developers cannot estimated the time it will take them to complete a task, the SCRUM deadlines might be extended too much and too often, resulting in a very weak prediction tool and thus reduced reliability in the estimation of resources and time for the project manager and SCRUM master.
+        \item[Motivation] Since SCRUM consists of many sprints, in which teams are dedicated to solving a set of tasks over a given period, a high motivational factor is required, to keep everyone focused. Usually daily or weekly meetings are arranged in which problems, experiences and knowledge earned through the sprint is shared and discussed. On paper, this seems like a valuable time investment, but this method of motivation might not work on everyone, and the meetings might instead have a negative impact on performance and motivation - especially for introverts and people who need time to build up to an efficient work flow.
     \end{description}
+    
 \end{multicols}
-
 % assignment 2)
 \clearpage
-\section{[B] Tinglysningsprojektet} % titler kan ikke oversættes :) (y)
+\section{[B] Tinglysningsprojektet}
 \label{sec:B}
 % Vurder, på baggrund af materialet om Tinglysningsprojektet:
-\dots
 
-\subsection{\dots}
+\subsection{Required methodology}
 % Om Domstolsstyrelsen har krævet at leverandøren anvendte en bestemt
 % systemudviklingsmetode (vandfald, agil eller noget tredje)
 
 % s. 29: 73. Formålet med en milepælsplan er ifølge Den Digitale Taskforces projektmodel følgen- de: ”Milepælsplanlægning er en metode, der hjælper til at nedbryde projektets resultatmål og delmål i håndterbare indsatsområder og opgaver/aktiviteter. Hermed skabes også for- udsætningerne for at fordele resurser og ansvarsområder i projektet. Selve milepælene giver et overblik over vigtige fikspunkter i projektperioden, som kan bruges til at gøre status og styre efter. Endelig kan milepælene også bruges som væsentlige pejlemærker for kommunikation med fx styregruppen. Milepælene er således elementer i en tidsplan”.
-\dots
+In the "Rigsrevisionens beretning" there is mention of {\it The Digital Taskforce}s methodology, called {\it milepælsplanlægning}, with which they coordinate the project in accordance with. In essence they constrained the development methodology to conform to this idea of planning milestones over the course of the project development. While this is vaguely addressed, it isn't clear weather the milestones refer to the project periods, such as deadlines, or more elaborate development milestones, such as particular components. Milestones are used in many different development methodologies, and the documents do not seem to enforce any particular methodology, other than the above mentioned constraint, along with the time frames and deployment deadline outlined in the contract.
 
 \subsection{Suggested methodology}
 \label{sec:B|sub:suggested-method}
@@ -147,31 +153,31 @@ The characteristics of the SCRUM methodology is that a project is broken down in
 % af en bestemt systemudviklingsmetode.
 
 % note: projekt milepæle omtalt i beretning august, samt kontrakt hovedtidsplan lægger op til 
-\dots
+We do not see any particular development method being suggested outright. However, reflecting over the contract and planned time frames put forth, where specific stages of development are pretty much set in stone, and these conform only to a waterfall methodology. A single development iteration period is granted, according to the contract, which as discussed below indicates a variation of the iterative waterfall methodology, with a fixed number of iterations, and only one testing period.
 
 \subsection{Employed methodology}
 \label{sec:B|sub:employed-method}
 % Hvilken systemudviklingsmetode, der faktisk blev anvendt i projektet?
-According to attachment 1 and 2 on the contract, the given timeline implies a waterfall method. Plans (specifications and design) are developed in their entirety, and remain unaltered throughout the project. The proposed timeline in the contract also gives a timeframe for iterations, which makes the employed methodology an iterative waterfall.
+According to attachment 1 and 2 on the contract, the given timeline implies a waterfall method. Plans (specifications and design) are developed in their entirety, and remain unaltered throughout the project. The proposed timeline in the contract also gives a time frame for iterations, which makes the employed development methodology an iterative waterfall approach.
 
-% TODO: verify/invalidate subproject delegation
-The project timeline shows the explicit separation between the components. Namely, external integration, engine, external- and internal portal. Which can be regarded as subprojects, presumably delegated to dedicated development teams, working in parallel, from a common specification.
+The project timeline shows the explicit separation between the components. Namely, external integration, engine, external- and internal portal. These can be regarded as subprojects, presumably delegated to dedicated development teams, working in parallel, from a common specification.
 
-\subsection{Methodology risks associated}
+\subsection{Associated methodology risks}
 \label{sec:B|sub:risks}
 % Hvilke fordele og hvilke risici den anvendte systemudviklingsmetode indebar for projektet?
-Given that the timeline assumes that each subproject completes at the same time \dots
-
+\vspace{-0.5em}
 \subsubsection{Advantages}
 \label{sec:B|sub:risks|sub:advantages}
 \begin{description}
-    \item[Subprojects] The development plan has facilitated multiple subprojects, which is highly time- and cost effective.
+    \item[Subprojects] The development plan has facilitated multiple subprojects, which is highly time and cost effective.
+    \item[Focus] The plan is very clear about what happens in each stage, which is characteristic of the waterfall method,     and this is an easy way for stakeholders to know what and when to expect the outcomes of each stage.
 \end{description}
 
 \subsubsection{Risks}
+\vspace{-0.5em}
 \label{sec:B|sub:risks|sub:risks}
 \begin{description}
-    \item[Component Failure] Should one or more of the subprojects fail, or unforeseen problems arise, following stages would be have to be postponed, pushing the entire project deadlines.
+    \item[Deadline Dependent] Given that the timeline ---somewhat naively--- assumes that each subproject completes at the same time, - if one or more subprojects is delayed, the entire plan is delayed, by the looks of it.
 \end{description}
 
 \end{document}
